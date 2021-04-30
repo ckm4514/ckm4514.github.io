@@ -1,6 +1,6 @@
 ---
 title: "[NLP] Global vs. Local Attention"
-date: 2021-04-14 07:000 -0400
+date: 2021-04-16 07:000 -0400
 author : 조경민
 categories :
   - NLP
