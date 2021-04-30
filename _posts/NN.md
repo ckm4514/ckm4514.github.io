@@ -1,3 +1,14 @@
+---
+title: "[NLP] Neural Network"
+date: 2021-04-07 07:000 -0400
+author : 조경민
+categories :
+  - NLP
+tags :
+  - NLP
+  - Deep_learning
+---
+
 ## Neural Network
 
 이번 포스팅에서는 딥러닝의 기초, Neural Network (NN) 에 대해서 알아보는 시간을 갖도록 하겠다. NN은 input을 받아 여러 neuron들로 이루어진 hidden layers를 거쳐 output을 뱉어내는 구조를 가지고 있는데, 사람의 neuron에서 따와 Neural network라는 이름이 붙었다. Hidden layers를 몇 개로 할지, loss는 무엇으로 둘 지, 각종 파라미터 및 output은 어떻게 결정할 지 등등에 따라 각기 다른 모델이 나오게 된다. 이제부터 NN의 구조 및 디테일에 대해 알아보자.
@@ -8,7 +19,7 @@
 
 Neural Network 는 기본적으로 아래와 같은 모양을 하고 있다.
 
-![NN_archi](C:\Users\secre\Desktop\자연어\blog\NN_archi.jpg)
+![NN_archi](/assets/NN_archi.jpg)
 
 단순한 Prediction task의 경우 output으로 예측값 자체를 나오게 할 수 있고, Classification 과 같은 task에서는 output으로 predicted probability를 나오게 하여 활용할 수도 있다.
 
