@@ -23,7 +23,7 @@ CNN, Daily mail news data 및 Children's Book Test 와 같은 대규모 Cloze-st
 
 ### Cloze-style question
 
-![cloze_style](/assets/cloze_style.jpg)
+![cloze_style](/assets/2021-03-23-cloze_style.jpg)
 
 **Cloze-style questions**는 문장에서 구를 삭제하여 형성된 질문입니다.
 
@@ -51,7 +51,7 @@ _**Overall Architecture**_는 다음과 같습니다. (Note: _Bidirectional_)
 > 2. 전체 문서의 맥락을 고려한 각 개별 단어의 벡터 임베딩 계산 (<u>Contextual embedding</u>)
 > 3. Question embedding과 Contextual embedding 간 dot product 를 사용하여 가장 가능성이 높은 답변을 선택
 
-![structure](/assets/structure.jpg)
+![structure](/assets/2021-03-23-structure.jpg)
 
 Detailed **_procedure_** :
 
@@ -64,7 +64,7 @@ Detailed **_procedure_** :
 
 _**Formula**_ :
 
-![eq1](/assets/eq1.jpg)
+![eq1](/assets/2021-03-23-eq1.jpg)
 
 
 
@@ -82,11 +82,11 @@ _**Formula**_ :
 
 Document d의 fixed length representation _**r**_은 다음과 같습니다 :
 
-![eq2](/assets/eq2.jpg)
+![eq2](/assets/2021-03-23-eq2.jpg)
 
 그리고 Joint query & document embedding **m**은 **r** 과 query embedding **g(q)**의 비선형 함수가 됩니다. 이 Joint embedding **m**은 결국 dot product 를 기준으로 모든 candidate answers과 비교되며, 결국 최종 score는 Softmax 에 의해 normalize 됩니다.
 
-![eq3](/assets/eq3.jpg)
+![eq3](/assets/2021-03-23-eq3.jpg)
 
 본 논문에서 소개하는 _Attentive Sum Reader_는 individual representations 에 대한 weighted sum 과 같은 복잡한 식을 사용하지 않고 compute된 attention을 _바로_ 사용하여 context 에서 정답을 선택한다는 점에서 위 모델과 차이가 있습니다.
 
@@ -96,7 +96,7 @@ Document d의 fixed length representation _**r**_은 다음과 같습니다 :
 
 단순한 dot product 대신 bilinear term 을 사용합니다.
 
-![eq4](/assets/eq4.jpg)
+![eq4](/assets/2021-03-23-eq4.jpg)
 
 그 외 다른 세팅들은 위 1) 과 유사합니다.
 
