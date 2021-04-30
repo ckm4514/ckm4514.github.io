@@ -1,3 +1,15 @@
+---
+title: "[NLP] Text classification"
+date: 2021-04-23 07:000 -0400
+author : 조경민
+categories :
+  - NLP
+tags :
+  - NLP
+  - Text_classification
+  - GLUE
+---
+
 ## Text classification
 
 이번 포스팅에서는 GLUE 벤치마크에 포함된 데이터셋과 관련 tasks를 중심으로 NLP 분야에서 논의되는 여러 Text classification challenge에 대한 overview를 살펴보도록 하겠다.
