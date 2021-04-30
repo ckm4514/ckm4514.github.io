@@ -1,7 +1,7 @@
 ---
 title: "[Paper Review] Attention is all you need"
 subtitle: "Attention is all you need (2017)"
-date: 2021-04-23 07:000 -0400
+date: 2021-04-19 07:000 -0400
 author : 조경민
 categories :
   - NLP
