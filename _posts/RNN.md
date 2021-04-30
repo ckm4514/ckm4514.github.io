@@ -1,3 +1,17 @@
+---
+title: "[NLP] RNN"
+date: 2021-04-20 07:000 -0400
+author : 조경민
+categories :
+  - NLP
+  - RNN
+tags :
+  - NLP
+  - RNN
+  - LSTM
+  - GRU
+---
+
 ## RNN
 
 
@@ -14,7 +28,7 @@ Recurrent 모델은 명칭에서도 알 수 있듯, 순환 구조를 지니고 �
 
 우선 RNN은 가장 기본이 되는 모델로, 이전 시점에서의 hidden state를 받아 예측을 이어나감으로써 과거의 정보를 활용할 수 있게 하는 모델이다.  따라서 특정 과거 input 몇개만을 반영하는 것보다 더 나은 측면이 있다고 볼 수 있다. 그림으로 표현하면 아래와 같으며, 모든 hidden layer 간 동일한 파라미터를 공유한다는 특징이 있다.
 
-![rnn1](C:\Users\secre\Desktop\자연어\blog\rnn1.jpg)
+![rnn1](/assets/rnn1.jpg)
 
 
 
@@ -32,7 +46,7 @@ RNN에는 몇 가지 문제점이 존재한다. 대표적인 것이 바로 Gradi
 
 LSTM은 위에서 언급한 것과 같은 RNN의 문제점을 완화하고자 고안된 모델이다. 일단 구조는 장기 메모리 역할을 하는 cell state와 forget & input & output gates 로 구성되어 있다. 이러한 gates를 잘 조절해주면 과거 정보가 그 다음 시점들로 얼마나 전달될 수 있는지(영향을 미칠 수 있는지) 를 일부 컨트롤할 수 있게 되어 RNN의 고질적인 문제였던 Long-term dependency problem을 어느정도 완화할 수 있게 된다. 즉, gates를 좀 더 세분화함으로써 과거 정보 전달에 대한 통제권을 확보하고, 이를 통해 vanishing gradient와 같은 문제를 잡아 Long-term dependency problem을 줄여보겠다는 것이다. LSTM의 대략적인 구조를 도식화하면 아래와 같다.
 
-![lstm](C:\Users\secre\Desktop\자연어\blog\lstm.jpg)
+![lstm](/assets/lstm.jpg)
 
 
 
@@ -52,7 +66,7 @@ LSTM의 좀 더 구체적인 버전인 Bidirectional / Stacked LSTM을 간단히
 
 GRU는 LSTM과 비슷하지만 좀 더 간소화된 구조를 가진 recurrent model이다. GRU는 LSTM처럼 gate를 활용하기는 하지만 그 수가 줄어들었다. 3개의 forget & input & output gates가 아닌 update & reset 2개의 gates만 지니고 있는데, 어떻게 보면 forget & input gates가 묶여서 update gate가 되었다고도 볼 수 있겠다. 그리고 cell/hidden state 구조도 그냥 hidden state 구조로 다소 간결하게 모델링되었다. 따라서 LSTM보다는 더 간단해졌지만 성능 자체는 크게 뒤지지 않는 것으로 연구된 GRU는 여러 분야에서 활용되고 있다.
 
-![gru](C:\Users\secre\Desktop\자연어\blog\gru.jpg)
+![gru](/assets/gru.jpg)
 
 
 
