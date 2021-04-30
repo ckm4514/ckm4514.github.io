@@ -1,3 +1,15 @@
+---
+title: "[NLP] Global vs. Local Attention"
+date: 2021-04-14 07:000 -0400
+author : 조경민
+categories :
+  - NLP
+  - Attention
+tags :
+  - Attention mechanism
+  - NLP
+---
+
 ## Global vs. Local Attention
 
 
