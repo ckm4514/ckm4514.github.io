@@ -1,6 +1,6 @@
 ---
 title: "[NLP] AutoEncoder"
-date: 2021-04-15 07:000 -0400
+date: 2021-04-10 07:000 -0400
 author : 조경민
 categories :
   - NLP
