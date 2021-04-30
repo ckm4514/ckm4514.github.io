@@ -98,9 +98,9 @@ Attention이라는 개념이 등장하기 전까지는 보통 Sequential data를
 
 - **Positional Encoding :** Transformer는 Recurrent model이나 Convolution model과 다소 다르기 때문에 Sequential data를 쓸 때 단어의 sequence 같은 정보를 따로 첨가해주어야 하는데, Positional Encoding (PE) 은 이러한 역할을 수행합니다. PE에서는 Sequential property를 나타내주기 위해 sine 과 cosine 함수 같은 주기성 있는 함수를 사용합니다. 구체적인 식은 아래와 같습니다.
 
-  ![pos1](C:\Users\secre\Desktop\GoGoogle\reading\attention_pic\pos1.jpg)
-
-  ![pos2](C:\Users\secre\Desktop\GoGoogle\reading\attention_pic\pos2.jpg)
+  ![pos1](/assets/pos1.jpg)
+  
+  ![pos2](/assets/pos2.jpg)
 
   위에서 'pos' 는 단어의 위치를 나타냅니다. 그것에 해당하는 PE vector는 k-th 요소가 다음과 같이 구성됩니다 : 1) k=2i+1 일 때는 cosine function 식 활용, 2) k=2i 일 때는 sine function 식 활용. 이렇게 해서 각 pos 에 대한 PE를 구하고 이것을 input or output embedding 값에 더해주게 되면 이들은 서로 다른 positional encoding value를 갖게 되어서 우리는 이제 position 별 구별을 하여 Sequential property를 적용할 수 있게 되는 것입니다. 참고로 식이 왜 저런 형식으로 나오는 지나 PE vector가 가지는 properties는 너무 테크니컬하여 일부 생략하였습니다. 
 
