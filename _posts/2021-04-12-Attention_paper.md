@@ -1,3 +1,19 @@
+---
+title: "[Paper Review] Attention is all you need"
+date: 2021-04-23 07:000 -0400
+author : 조경민
+categories :
+  - NLP
+  - paper-review
+  - transformer
+tags :
+  - Attention mechanism
+  - Transformer
+  - NLP
+  - encoder
+  - parallelization
+---
+
 ## Attention is all you need (2017)
 
 이번 포스팅에서는 NLP를 비롯한 분야의 판도를 뒤집어놓은 유명한 논문, **Attention is all you need (2017)** 에 대한 Paper review를 해보도록 하겠습니다. 필자가 생각하기에 중요하다고 여겨지는 부분 위주로 summary 한 것이니 Attention을 알아보고자 하시는 분이라면 원 논문을 꼭 다 읽어보시는 것을 추천드립니다.
