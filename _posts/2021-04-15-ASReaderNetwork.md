@@ -112,5 +112,5 @@ Document d의 fixed length representation _**r**_은 다음과 같습니다 :
 
 
 
-본 포스팅에서는 핵심 모델인 Attention Sum Reader Network 를 설명하는 데 초점을 맞추었으니, 그 외 다양한 타 모델들과의 comparison은 [논문][https://arxiv.org/abs/1603.01547] 에서 직접 확인해보시길 추천드립니다. 
+본 포스팅에서는 핵심 모델인 Attention Sum Reader Network 를 설명하는 데 초점을 맞추었으니, 그 외 다양한 타 모델들과의 comparison은 [논문](https://arxiv.org/abs/1603.01547) 에서 직접 확인해보시길 추천드립니다. 
 
