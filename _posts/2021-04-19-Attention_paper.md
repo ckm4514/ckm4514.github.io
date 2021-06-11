@@ -29,7 +29,7 @@ Attention이라는 개념이 등장하기 전까지는 보통 Sequential data를
 
 예를 들어, _'나는 언어학을 전공하였고 현재 대학원에서는 딥러닝을 공부하고 있는데, 그래서인지 특히나 NLP 분야에 관심이 가는 것 같아.'_ 라는 예시 문장이 있고 'NLP' 이라는 부분을 맞히는 모델을 짜고 싶다고 가정합시다. Long-term dependency problem 이란 'NLP'라는 답을 나오도록 하는 데에 '언어학' 이라는 단어가 중요한 역할을 함에도 불구하고 '딥러닝' 이라는 단어가 더 가까워 영향을 많이 주기 때문에 'NLP' 대신 '이미지' 와 같은 엉뚱한 답이 산출될 수 있다는 문제점을 의미합니다.
 
-**Attention mechanism** 은 이러한 단점을 보완해줄 수 있는 모델입니다. 그럼 이제부터 그 구조와 원리에 대해 살펴보도록 합시다.
+**Attention mechanism** 은 이러한 단점을 보완해줄 수 있는 모델로, 입력 정보중 어떤 것을 **중점적으로** 참고해야할지를 통해 모델링을 진행하는 . 그럼 이제부터 그 구조와 원리에 대해 살펴보도록 합시다.
 
 
 
@@ -83,23 +83,28 @@ Attention이라는 개념이 등장하기 전까지는 보통 Sequential data를
 
 ![](https://pozalabs.github.io/assets/images/%EC%B0%A8%EC%9B%90.png)
 
+(NOTE: **Multi-Head Attention**에 대한 자세한 디테일은 [다른 포스팅](https://ckm4514.github.io/nlp/MHA/)을 참조해주세요!)
 
 
-### 3. Self-Attention
 
-그렇다면 NLP 분야 등에서 최근 흔히 들어볼 수 있는 Self-Attention 이란 무엇일까요? 일단 그림부터 살펴봅시다.
+### 3. Attention in Encoder-Decoder architecture
+
+일단 그림부터 살펴봅시다.
 
 ![](https://pozalabs.github.io/assets/images/encoder-decoder%20attention.png)
 
 
 
-위 그림은 **Encoder-Decoder Attention layer** 의 구조를 나타낸 것입니다. 참고로 Encoder만 있는 구조, Decoder만 있는 구조를 따로 다루는 케이스도 있으나 여기서는 둘을 합친 버전만 논의해보도록 하겠습니다. 구조를 보면 이미 우리가 앞서 배운 Multi-Head Attention이 포함되어 있고 부가적으로 Feed-forward 부분과 Layer normalization, Residual connection 등이 적용되어있음을 알 수 있습니다. Feed-forward는 딥러닝의 기본이므로 다들 아실거라고 가정하고, Layer normalization이나 Residual connection은 다소 technical 한 부분이라 이번 포스팅에서는 다루지 않고 다음에 기회가 되면 더 자세하게 논의해보도록 하겠습니다.
+위 그림은 **Encoder-Decoder Attention layer** 의 구조를 나타낸 것입니다. 참고로 Encoder만 있는 구조, Decoder만 있는 구조를 따로 다루는 케이스도 있으나 여기서는 둘을 합친 버전만 논의해보도록 하겠습니다. 이 외의 자세한 설명은 [다른 포스팅](https://ckm4514.github.io/nlp/Trans/)을 참조해주세요!
+구조를 보면 이미 우리가 앞서 배운 Multi-Head Attention이 포함되어 있고 부가적으로 Feed-forward 부분과 Layer normalization, Residual connection 등이 적용되어있음을 알 수 있습니다. Feed-forward는 딥러닝의 기본이므로 다들 아실거라고 가정하고, Layer normalization이나 Residual connection은 다소 technical 한 부분이라 이번 포스팅에서는 다루지 않고 [다음](https://ckm4514.github.io/nlp/Trans/)에 기회가 되면 더 자세하게 논의해보도록 하겠습니다.
 
 구조를 보면 Query는 이전 decoder layer에서 가져오고 Key와 Value는 encoder의 output에서 가져옵니다. 따라서 decoder의 모든 position에서 input sequence에 attend 할 수 있습니다. 즉, encoder output의 모든 position에 attend 할 수 있다는 뜻입니다. Query가 decoder layer의 output인 이유는 Query 그 자체가 condition이기 때문입니다. 더 자세히 설명하자면, 우리가 이러한 decoder value를 가지고 있을 때 어떤 것을 output으로 뱉는 것이 가장 적절한가? 에 대한 답을 내기 위해 작동하는 모델인 것입니다.
 
 이 때, Decoder 파트에서는 오직 previous positions만을 참조하도록 만들어져야 합니다(그 이후의 값을 참조하여 output을 낸다는 것은 말이 안됨). 따라서 이러한 auto-regressive property를 유지할 수 있도록 모델이 짜여져야 하는데, 여기서는 이를 위해 **Masking** 이라는 것을 수행합니다. 예를 들어 우리가 i-th output을 내고싶으면 i-th position 이후의 모든 positions를 i-th position의 attention value를 구할 때 masking 해준다는 것입니다. 참고로, 기술적으로 masking out 한다는 것은 Softmax의 input 값을 negative infinity로 준다는 것을 의미합니다.
 
 ![](https://pozalabs.github.io/assets/images/masking.png)
+
+참고로, **SELF-Attention** 이란 Attention은 Attention이나 **Q,K,V**가 같아서 말그대로 _자기자신_ 에 대해 attend하는 버전을 의미합니다.
 
 
 
